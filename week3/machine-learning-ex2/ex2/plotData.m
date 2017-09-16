@@ -12,8 +12,20 @@ figure; hold on;
 %               examples and 'ko' for the negative examples.
 %
 
+X_neg = [];
+X_pos = [];
+
+for i = 1:length(y)
+  if y(i) == 0
+    X_neg = [X_neg; X(i,:)];
+  else  
+    X_pos = [X_pos; X(i,:)];
+  end
+end
 
 
+plot(X_neg(:,1), X_neg(:,2), 'ko')
+plot(X_pos(:,1), X_pos(:,2), 'k+')
 
 
 
