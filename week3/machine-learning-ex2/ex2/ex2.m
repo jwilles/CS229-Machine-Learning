@@ -77,7 +77,7 @@ fprintf('Expected gradients (approx):\n -0.1000\n -12.0092\n -11.2628\n');
 test_theta = [-24; 0.2; 0.2];
 [cost, grad] = costFunction(test_theta, X, y);
 
-fprintf('\nCost at test theta: %f\n', cost);
+%fprintf('\nCost at test theta: %f\n', cost);
 fprintf('Expected cost (approx): 0.218\n');
 fprintf('Gradient at test theta: \n');
 fprintf(' %f \n', grad);
@@ -90,6 +90,7 @@ pause;
 %% ============= Part 3: Optimizing using fminunc  =============
 %  In this exercise, you will use a built-in function (fminunc) to find the
 %  optimal parameters theta.
+
 
 %  Set options for fminunc
 options = optimset('GradObj', 'on', 'MaxIter', 400);
