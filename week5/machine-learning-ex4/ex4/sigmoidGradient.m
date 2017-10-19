@@ -15,9 +15,9 @@ g = zeros(size(z));
 
 
 
+sig = 1.0 ./ (1.0 + exp(-z)) 
 
-
-
+g = sig .* (1 - sig)
 
 
 
