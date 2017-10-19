@@ -67,8 +67,22 @@ J += (lambda/(2*m))*(sum(sum(Theta1(:,2:end).^2))+sum(sum(Theta2(:,2:end).^2)));
 %               first time.
 %
 
+I = eye(num_labels);
+Y = zeros(m, num_labels);
+for i=1:m
+  Y(i,:)= I(y(i), :);
+end 
+
+sigma3 = h .- Y
+sigma2 = (sigma3 * Theta2) .* sigmoidGradient([ones(size(z1,1),1) z1]);
+sigma2 = sigma2(:, 2:end);
+
+delta2 = sigma3'*a1;
+delta1 = sigma2'*a0;
 
 
+Theta1_grad = delta1./m
+Theta2_grad = delta2./m;
 
 
 
