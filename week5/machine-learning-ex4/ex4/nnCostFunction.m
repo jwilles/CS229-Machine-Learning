@@ -73,7 +73,7 @@ for i=1:m
   Y(i,:)= I(y(i), :);
 end 
 
-sigma3 = h .- Y
+sigma3 = h .- Y;
 sigma2 = (sigma3 * Theta2) .* sigmoidGradient([ones(size(z1,1),1) z1]);
 sigma2 = sigma2(:, 2:end);
 
@@ -81,8 +81,10 @@ delta2 = sigma3'*a1;
 delta1 = sigma2'*a0;
 
 
-Theta1_grad = delta1./m
+Theta1_grad = delta1./m;
 Theta2_grad = delta2./m;
+
+
 
 
 
@@ -99,6 +101,13 @@ Theta2_grad = delta2./m;
 %
 
 
+
+Theta1_grad(:,1) = Theta1_grad(:,1);
+Theta2_grad(:,1) = Theta2_grad(:,1);
+
+% Implement for Theta1 and Theta 2 when l > 0
+Theta1_grad(:,2:end) = Theta1_grad(:,2:end) + ( (lambda/m) * Theta1(:,2:end) );
+Theta2_grad(:,2:end) = Theta2_grad(:,2:end) + ( (lambda/m) * Theta2(:,2:end) );
 
 
 
