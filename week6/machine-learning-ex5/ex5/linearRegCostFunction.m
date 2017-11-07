@@ -20,13 +20,31 @@ grad = zeros(size(theta));
 %
 
 
+J = (1/(2*m))*sum((X*theta - y) .^2)
 
 
-
-
-
-
-
+%
+%theta;
+%
+%X;
+%
+%y;
+%
+%z = X * theta;
+%
+%%hX = sigmoid( z );
+%
+%theta_pen = [0; theta(2:size(theta))];
+%
+%J = - (1/m) * (log(z') * y + log(1 - z') * (1 - y)) + (lambda/(2*m))*(theta_pen'*theta_pen);
+%%J = (1/m)*((-y'*log(sig)) - ((1 - y')*log(1 - sig)))
+%
+%
+%%grad = (1/m)*X'*(sig - y)
+%
+%grad = (1/m)*X'*(z - y) + (lambda/m)*theta_pen;
+%
+%
 
 
 
