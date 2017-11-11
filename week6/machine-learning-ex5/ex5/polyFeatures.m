@@ -15,8 +15,6 @@ function [X_poly] = polyFeatures(X, p)
 %
 %
 
-p
-numel(X)
 
 X_poly = X;
  
@@ -24,7 +22,7 @@ for i = 1:p
   X_poly = [X_poly, X_poly(:,1).^i];
 end 
 
-X_poly = X_poly(:, 2:end)
+X_poly = X_poly(:, 2:end);
 
 
 
