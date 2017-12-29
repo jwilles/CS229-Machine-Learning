@@ -22,6 +22,12 @@ sigma2 = zeros(n, 1);
 %
 
 
+mu = sum(X)/m;
+
+y = X - mu;
+
+sigma2 = (y' * y)/m;
+
 
 
 
