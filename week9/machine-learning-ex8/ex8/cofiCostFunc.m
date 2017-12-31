@@ -45,10 +45,16 @@ Theta_grad = zeros(size(Theta));
 z = (X*Theta' - Y);
 z_r = z(R==1);
 
-J = (z_r' * z_r)/2;
 
+% Without Regularization
+J = (z_r' * z_r)/2;
 X_grad = (z.*R)*Theta;
 Theta_grad = (z.*R)'*X;
+
+% Add Regularization
+
+
+J = J + (lambda/2)*(sum(sum(Theta.^2))+sum(sum(X.^2)));
 
 
 
