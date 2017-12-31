@@ -42,9 +42,13 @@ Theta_grad = zeros(size(Theta));
 
     
 
-z = (X*Theta' - Y)(R==1);
+z = (X*Theta' - Y);
+z_r = z(R==1);
 
-J = (z' * z)/2;
+J = (z_r' * z_r)/2;
+
+X_grad = (z.*R)*Theta;
+Theta_grad = (z.*R)'*X;
 
 
 
